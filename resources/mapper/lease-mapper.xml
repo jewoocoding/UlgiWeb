@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LibraryMapper">
+	<resultMap type="Library" id="rsetToLibrary">
+		<id property="leaseNo" column="LEASE_NO"/>
+		<result property="bookNo" column="BOOK_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="leaseDate" column="LEASE_DATE"/>
+		<result property="returnDate" column="RETURN_DATE"/>
+	</resultMap>
+	<select id="getLeaseList" resultMap="rsetToLibrary">
+		SELECT * FROM LIBRARY
+	</select>
+	<select id="getLeaseListSize" resultType="_int">
+		SELECT COUNT(*) FROM LIBRARY
+	</select>
+	<select id="getSearchLeaseList" resultMap="rsetToLibrary">
+		SELECT * FROM LIBRARY
+		<where>
+			<if test="searchCondition == 'userId'">
+				USER_ID LIKE '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="searchCondition == 'bookName'">
+				BOOK_NO LIKE '%'||#{searchKeyword}||'%'
+			</if>
+		</where>
+	</select>
+	<select id="getLeaseSearchListSize" resultType="_int">
+		SELECT COUNT(*) FROM LIBRARY
+		<where>
+			<if test="searchCondition == 'userId'">
+				USER_ID LIKE '%'||#{searchKeyword}||'%'
+			</if>
+			<if test="searchCondition == 'bookName'">
+				BOOK_NO LIKE '%'||#{searchKeyword}||'%'
+			</if>
+		</where>
+	</select>
+</mapper>
