@@ -4,11 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>대여리스트 페이지</title>
+	<meta charset="UTF-8">
+	<title>대여리스트 페이지</title>
+	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/header.css">
+	<link rel="stylesheet" href="../resources/css/list.css">
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+	<a href="/lease/insert">추가</a>
 	<h1>대여리스트</h1>
 	<form action="/lease/search" method="get">
 		<select name="searchCondition">
@@ -34,7 +38,7 @@
 				<tr>
 					<td>${i.index + 1 }</td>
 					<td>${list.leaseNo }</td>
-					<td>${list.bookNo }</td>
+					<td><a href="/lease/detail&leaseNo=${leaseNo }">${list.bookNo }</a></td>
 					<td>${list.userId }</td>
 					<td>${list.leaseDate }</td>
 					<td>${list.returnDate }</td>

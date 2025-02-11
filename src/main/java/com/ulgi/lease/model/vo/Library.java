@@ -10,6 +10,13 @@ public class Library {
 	private Date returnDate;
 	
 	public Library() {}
+	
+	public Library(int leaseNo, int bookNo, String userId) {
+		super();
+		this.leaseNo = leaseNo;
+		this.bookNo = bookNo;
+		this.userId = userId;
+	}
 
 	public int getLeaseNo() {
 		return leaseNo;

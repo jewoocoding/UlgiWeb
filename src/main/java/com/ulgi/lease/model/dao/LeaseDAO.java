@@ -32,4 +32,16 @@ public class LeaseDAO {
 		return session.selectOne("LibraryMapper.getLeaseSearchListSize", search);
 	}
 
+	public Library selectOneByLeaseNo(SqlSession session, int leaseNo) {
+		return session.selectOne("LibraryMapper.selectOneByLeaseNo",leaseNo);
+	}
+
+	public int deleteByLeaseNo(SqlSession session, int leaseNo) {
+		return session.delete("LibraryMapper.deleteByLeaseNo",leaseNo);
+	}
+
+	public int insertLease(SqlSession session, Library library) {
+		return session.insert("LibraryMapper.insertLease", library);
+	}
+
 }

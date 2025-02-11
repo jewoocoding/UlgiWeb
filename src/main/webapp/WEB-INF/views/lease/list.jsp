@@ -4,52 +4,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>대여리스트 페이지</title>
+	<meta charset="UTF-8">
+	<title>대여리스트 페이지</title>
+	<link rel="stylesheet" href="../resources/css/reset.css">
+	<link rel="stylesheet" href="../resources/css/header.css">
+	<link rel="stylesheet" href="../resources/css/list.css">
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-	<h1>대여리스트</h1>
-	<form action="/lease/search" method="get">
-		<select name="searchCondition">
-			<option value="userId">회원아이디</option>
-			<option value="bookName">책이름</option>
-		</select>
-		<input type="text" name="searchKeyword" placeholder="검색어를 입력하세요">
-		<button type="submit">검색</button>
-	</form>
-	<table>
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>대여번호</th>
-				<th>책번호</th>
-				<th>고객아이디</th>
-				<th>대여일</th>
-				<th>반납일</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${lList }" var="list" varStatus="i">
-				<tr>
-					<td>${i.index + 1}</td>
-					<td>${list.leaseNo }</td>
-					<td>${list.bookNo }</td>
-					<td>${list.userId }</td>
-					<td>${list.leaseDate }</td>
-					<td>${list.returnDate }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<c:if test="${startNavi ne 1 }">
-		<a href="/lease/list?currentPage=${startNavi-1 }">&lt;</a>
-	</c:if>
-	<c:forEach begin="${startNavi }" end="${endNavi }" var="i">
-		<a href="/lease/list?currentPage=${i }">${i }</a>	
-	</c:forEach>
-	<c:if test="${endNavi ne maxPage }">
-		<a href="/lease/list?currentPage=${endNavi+1 }">&gt;</a>
-	</c:if>
+	<div id="container">
+		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+		<main id="main">
+			<div class="title">
+				<h3>대여 관리</h3>		
+			</div>
+			<div class="content">
+				<div class="menu">
+					<div class="insert">
+						<form action="/lease/insert">
+							<button>추가</button>
+						</form>
+					</div>
+					<form action="/lease/search" method="get">
+						<div class="search">
+							<div class="select">
+								<select name="searchCondition" class="select">
+									<option value="userId">회원아이디</option>
+									<option value="bookName">책이름</option>
+								</select>							
+							</div>
+							<div class="input">
+								<input type="text" name="searchKeyword" placeholder="검색어를 입력하세요">							
+							</div>
+							<div class="searchbtn">
+								<button type="submit">검색</button>
+							</div>
+						</div>
+					</form>			
+				</div>
+				<div class="list">
+					<table>
+						<thead>
+							<tr>
+								<th class="table listno">번호</th>
+								<th class="table leaseno">대여번호</th>
+								<th class="table bookno">책번호</th>
+								<th class="table userid">고객아이디</th>
+								<th class="table leasedate">대여일</th>
+								<th class="table returndate">반납일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${lList }" var="list" varStatus="i">
+								<tr>
+									<td class="table listno">${i.index + 1}</td>
+									<td class="table leaseno">${list.leaseNo }</td>
+									<td class="table bookno"><a href="/lease/detail?leaseNo=${list.leaseNo }">${list.bookNo }</a></td>
+									<td class="table userid">${list.userId }</td>
+									<td class="table leasedate">${list.leaseDate }</td>
+									<td class="table returndate">${list.returnDate }</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div class="pagination">
+					<c:if test="${startNavi ne 1 }">
+						<a href="/lease/list?currentPage=${startNavi-1 }">&lt;</a>
+					</c:if>
+					<c:forEach begin="${startNavi }" end="${endNavi }" var="i">
+						<a href="/lease/list?currentPage=${i }">${i }</a>	
+					</c:forEach>
+					<c:if test="${endNavi ne maxPage }">
+						<a href="/lease/list?currentPage=${endNavi+1 }">&gt;</a>
+					</c:if>			
+				</div>
+			</div>
+		</main>
+	</div>
 </body>
 </html>

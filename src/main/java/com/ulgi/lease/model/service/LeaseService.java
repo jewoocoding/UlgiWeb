@@ -35,4 +35,16 @@ public class LeaseService {
 		return lDao.getLeaseSearchListSize(session, search);
 	}
 
+	public Library selectOneByLeaseNo(int leaseNo) {
+		return lDao.selectOneByLeaseNo(session, leaseNo);
+	}
+
+	public int deleteByLeaseNo(int leaseNo) {
+		return lDao.deleteByLeaseNo(session, leaseNo);
+	}
+
+	public int insertLease(Library library) {
+		return lDao.insertLease(session, library);
+	}
+
 }
