@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+main{
+	--width: 1000px;
+	--height: 550px;
+	margin: 0;
+	background-color: #fffbfb;
+}
+form{
+	display: block;
+}
+
+.content-title{
+	font-size: 25px;
+	color: #2d336b;
+	margin: 0;
+	padding: 30px;
+}
+
+.detail{
+	--border: 1px solid #222;
+	height: 300px;
+	margin: 30px auto;
+	border-radius: 5px;
+}
+.detail td{
+	width: 300px;
+	text-align: center;
+	
+}
+.tbTitle {
+	background-color: #8089dd;
+	text-decoration: #fff;
+	border-radius: 5px;
+}
+.tbContent input{
+	border: none;
+	width: 99%;
+	height: 100%;
+	padding-left: 30px;
+}
+
+
+.delete-button{
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+}
+.delete-button button{
+	color: #fff;
+	background-color: #8089dd;
+	border: none;
+	margin-bottom: 30px;
+	width: 60px;
+	height: 40px;
+	border-radius: 5px;
+}

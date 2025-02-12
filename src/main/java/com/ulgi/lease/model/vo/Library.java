@@ -8,6 +8,8 @@ public class Library {
 	private String userId;
 	private Date leaseDate;
 	private Date returnDate;
+	private String bookName;
+	private String userName;
 	
 	public Library() {}
 	
@@ -38,10 +40,18 @@ public class Library {
 		return returnDate;
 	}
 
+	public String getBookName() {
+		return bookName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
 	@Override
 	public String toString() {
 		return "Library [leaseNo=" + leaseNo + ", bookNo=" + bookNo + ", userId=" + userId + ", leaseDate=" + leaseDate
-				+ ", returnDate=" + returnDate + "]";
+				+ ", returnDate=" + returnDate + ", bookName=" + bookName + ", userName=" + userName + "]";
 	}
-
+	
 }

@@ -52,6 +52,7 @@ public class LeaseSearchServlet extends HttpServlet {
 			if(endNavi > maxPage) {
 				endNavi = maxPage;
 			}
+			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("search", search);
 			request.setAttribute("lList", lList);
 			request.setAttribute("startNavi", startNavi);

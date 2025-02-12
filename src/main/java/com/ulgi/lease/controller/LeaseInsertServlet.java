@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 import com.ulgi.lease.model.service.LeaseService;
 import com.ulgi.lease.model.vo.Library;
@@ -30,6 +31,11 @@ public class LeaseInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LeaseService lService = new LeaseService();
+		List<String> bookNameList = lService.selectBookNameList();
+		List<String> userIdList = lService.selectUserIdList();
+		request.setAttribute("bList", bookNameList);
+		request.setAttribute("uList", userIdList);
 		request.getRequestDispatcher("/WEB-INF/views/lease/insert.jsp").forward(request, response);
 	}
 
@@ -37,12 +43,15 @@ public class LeaseInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		LeaseService lService = new LeaseService();
+		
+		
 		int leaseNo = Integer.parseInt( request.getParameter("leaseNo"));
-		int bookNo = Integer.parseInt(request.getParameter("bookNo"));
+		int bookNo = lService.selectBookNoByName(request.getParameter("bookName"));
 		String userId = request.getParameter("userId");
 		Library library = new Library(leaseNo, bookNo, userId);
 		
-		int result = new LeaseService().insertLease(library);
+		int result = lService.insertLease(library);
 		if( result > 0) {
 			response.sendRedirect("/lease/list");
 		}else {

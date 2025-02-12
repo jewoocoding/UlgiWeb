@@ -47,4 +47,16 @@ public class LeaseService {
 		return lDao.insertLease(session, library);
 	}
 
+	public int selectBookNoByName(String bookName) {
+		return lDao.selectBookNoByName(session, bookName);
+	}
+
+	public List<String> selectBookNameList() {
+		return lDao.selectBookNameList(session);
+	}
+
+	public List<String> selectUserIdList() {
+		return lDao.selectUserIdList(session);
+	}
+
 }

@@ -47,8 +47,9 @@
 							<tr>
 								<th class="table listno">번호</th>
 								<th class="table leaseno">대여번호</th>
-								<th class="table bookno">책번호</th>
+								<th class="table bookno">책이름</th>
 								<th class="table userid">고객아이디</th>
+								<th class="table username">고객명</th>
 								<th class="table leasedate">대여일</th>
 								<th class="table returndate">반납일</th>
 							</tr>
@@ -56,10 +57,11 @@
 						<tbody>
 							<c:forEach items="${lList }" var="list" varStatus="i">
 								<tr>
-									<td class="table listno">${i.index + 1}</td>
+									<td class="table listno">${(currentPage-1)*10 + i.index + 1}</td>
 									<td class="table leaseno">${list.leaseNo }</td>
-									<td class="table bookno"><a href="/lease/detail?leaseNo=${list.leaseNo }">${list.bookNo }</a></td>
+									<td class="table bookno"><a href="/lease/detail?leaseNo=${list.leaseNo }">${list.bookName }</a></td>
 									<td class="table userid">${list.userId }</td>
+									<td class="table username">${list.userName }</td>
 									<td class="table leasedate">${list.leaseDate }</td>
 									<td class="table returndate">${list.returnDate }</td>
 								</tr>
@@ -72,7 +74,7 @@
 						<a href="/lease/list?currentPage=${startNavi-1 }">&lt;</a>
 					</c:if>
 					<c:forEach begin="${startNavi }" end="${endNavi }" var="i">
-						<a href="/lease/list?currentPage=${i }">${i }</a>	
+						<a href="/lease/list?currentPage=${i }" <c:if test="${currentPage == i }">style="color: #fff; background-color:#8089dd;"</c:if>>${i }</a>
 					</c:forEach>
 					<c:if test="${endNavi ne maxPage }">
 						<a href="/lease/list?currentPage=${endNavi+1 }">&gt;</a>

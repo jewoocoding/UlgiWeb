@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,26 +8,45 @@
 	<title>대여 추가 페이지</title>
 	<link rel="stylesheet" href="../resources/css/reset.css">
 	<link rel="stylesheet" href="../resources/css/header.css">
-	<link rel="stylesheet" href="../resources/css/list.css">
+	<link rel="stylesheet" href="../resources/css/detail.css">
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-	<form action="/lease/insert" method="post">
-		<table>
-			<tr>
-				<td>대여번호</td>
-				<td><input type="text" name="leaseNo"></td>
-			</tr>
-			<tr>
-				<td>책번호</td>
-				<td><input type="text" name="bookNo"></td>
-			</tr>
-			<tr>
-				<td>고객아이디</td>
-				<td><input type="text" name="userId"></td>
-			</tr>
-		</table>
-		<button type="submit">추가</button>
-	</form>
+	<div id="container">
+		<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+		<main>
+			<h3 class="content-title">대여 관리 - 상세페이지</h3>
+			<form action="/lease/insert" method="post">
+				<table class="detail">
+					<tr>
+						<td class="tbTitle">대여번호</td>
+						<td class="tbContent"><input type="text" name="leaseNo"></td>
+					</tr>
+					<tr>
+						<td class="tbTitle">책이름</td>
+						<td class="tbContent">
+							<select name="bookName">
+								<c:forEach items="${bList }" var="list">
+									<option value="${list }">${list }</option>
+								</c:forEach>
+							</select>						
+						</td>
+					</tr>
+					<tr>
+						<td class="tbTitle">고객아이디</td>
+						<td class="tbContent">
+							<select name="userId">
+								<c:forEach items="${uList }" var="list">
+									<option value="${list }">${list }</option>
+								</c:forEach>
+							</select>						
+						</td>
+					</tr>
+				</table>
+				<div class="delete-button">
+					<button type="submit">추가</button>				
+				</div>
+			</form>
+		</main>
+	</div>
 </body>
 </html>

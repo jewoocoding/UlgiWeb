@@ -44,4 +44,16 @@ public class LeaseDAO {
 		return session.insert("LibraryMapper.insertLease", library);
 	}
 
+	public int selectBookNoByName(SqlSession session, String bookName) {
+		return session.selectOne("LibraryMapper.selectBookNoByName", bookName);
+	}
+
+	public List<String> selectBookNameList(SqlSession session) {
+		return session.selectList("LibraryMapper.selectBookNameList");
+	}
+
+	public List<String> selectUserIdList(SqlSession session) {
+		return session.selectList("LibraryMapper.selectUserIdList");
+	}
+
 }
