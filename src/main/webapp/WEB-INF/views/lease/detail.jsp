@@ -38,10 +38,16 @@
 					</tr>
 				</table>
 				<div class="delete-button">
-					<button type="submit">삭제</button>			
+					<button type="submit" onclick="delYesOrNo();" id="del-btn" name="del">삭제</button>			
 				</div>
 			</form>			
 		</main>
 	</div>
+	<script type="text/javascript">
+		function delYesOrNo() {
+			var val = confirm("정말 삭제하시겠습니까?");
+			document.querySelector("#del-btn").value = val;
+		}
+	</script>
 </body>
 </html>

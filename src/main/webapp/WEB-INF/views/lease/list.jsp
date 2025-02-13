@@ -74,7 +74,7 @@
 						<a href="/lease/list?currentPage=${startNavi-1 }">&lt;</a>
 					</c:if>
 					<c:forEach begin="${startNavi }" end="${endNavi }" var="i">
-						<a href="/lease/list?currentPage=${i }" <c:if test="${currentPage == i }">style="color: #fff; background-color:#8089dd;"</c:if>>${i }</a>
+						<a href="/lease/list?currentPage=${i }" <c:if test="${currentPage == i }">style="color: #fff; background-color:#2d336a;"</c:if>>${i }</a>
 					</c:forEach>
 					<c:if test="${endNavi ne maxPage }">
 						<a href="/lease/list?currentPage=${endNavi+1 }">&gt;</a>

@@ -28,12 +28,18 @@ public class LeaseDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int leaseNo = Integer.parseInt(request.getParameter("leaseNo"));
-		int result = new LeaseService().deleteByLeaseNo(leaseNo);
-		if(result > 0) {
-			response.sendRedirect("/lease/list");
+
+		if(Boolean.parseBoolean(request.getParameter("del"))) {
+			int leaseNo = Integer.parseInt(request.getParameter("leaseNo"));
+			int result = new LeaseService().deleteByLeaseNo(leaseNo);
+			
+			if(result > 0) {
+				response.sendRedirect("/lease/list");
+			}else {
+				request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
+			}
 		}else {
-			request.getRequestDispatcher("/WEB-INF/views/common/error.jsp").forward(request, response);
+			response.sendRedirect("/lease/list");
 		}
 	}
 

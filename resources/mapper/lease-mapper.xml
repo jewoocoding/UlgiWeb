@@ -57,7 +57,7 @@
 		DELETE FROM LIBRARY WHERE LEASE_NO = #{leaseNo}
 	</delete>
 	<insert id="insertLease">
-		INSERT INTO LIBRARY VALUES(#{leaseNo},#{bookNo},#{userId},DEFAULT, SYSDATE+2)
+		INSERT INTO LIBRARY VALUES(SEQ_LEASE_NO.NEXTVAL,#{bookNo},#{userId},DEFAULT, SYSDATE+2)
 	</insert>
 	<select id="selectBookNoByName" resultType="_int">
 		SELECT BOOK_NO FROM BOOK WHERE BOOK_NAME = #{bookName}

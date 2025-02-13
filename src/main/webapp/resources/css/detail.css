@@ -1,13 +1,14 @@
 @charset "UTF-8";
-
-main{
-	--width: 1000px;
-	--height: 550px;
-	margin: 0;
-	background-color: #fffbfb;
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+
 form{
 	display: block;
+	font-family: 'CookieRun-Regular';
 }
 
 .content-title{
@@ -29,15 +30,19 @@ form{
 	
 }
 .tbTitle {
+	font-size: 30px;
 	background-color: #8089dd;
 	text-decoration: #fff;
 	border-radius: 5px;
+	color: #fff;
 }
 .tbContent input{
 	border: none;
 	width: 99%;
 	height: 100%;
 	padding-left: 30px;
+	font-size: 30px;
+	font-family: 'CookieRun-Regular';
 }
 
 
@@ -54,4 +59,19 @@ form{
 	width: 60px;
 	height: 40px;
 	border-radius: 5px;
+	transition-duration: 1.0s;
+}
+
+.delete-button button:hover {
+	background-color : #2d336a;
+}
+
+.tbContent select {
+	width: 250px;
+	height: 80px;
+	border: 1px solid #8089dd;
+	border-radius: 10px;
+	font-size: 30px;
+	text-align: center;
+	font-family: 'CookieRun-Regular';
 }

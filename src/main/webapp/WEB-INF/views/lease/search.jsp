@@ -59,7 +59,7 @@
 								<tr>
 									<td class="table listno">${(currentPage-1)*10 + i.index + 1}</td>
 									<td class="table leaseno">${list.leaseNo }</td>
-									<td class="table bookno"><a href="/lease/detail&leaseNo=${leaseNo }">${list.bookName }</a></td>
+									<td class="table bookno"><a href="/lease/detail?leaseNo=${list.leaseNo }">${list.bookName }</a></td>
 									<td class="table userid">${list.userId }</td>
 									<td class="table username">${list.userName }</td>
 									<td class="table leasedate">${list.leaseDate }</td>
@@ -74,7 +74,7 @@
 						<a href="/lease/search?currentPage=${startNavi-1 }&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${startNavi }" end="${endNavi }" var="i">
-						<a href="/lease/search?currentPage=${i }&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}">${i }</a>	
+						<a href="/lease/search?currentPage=${i }&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}" <c:if test="${currentPage == i }">style="color: #fff; background-color:#2d336a;"</c:if>>${i }</a>	
 					</c:forEach>
 					<c:if test="${endNavi ne maxPage }">
 						<a href="/lease/search?currentPage=${endNavi+1 }&searchCondition=${search.searchCondition}&searchKeyword=${search.searchKeyword}">&gt;</a>

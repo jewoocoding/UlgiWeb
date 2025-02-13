@@ -46,10 +46,9 @@ public class LeaseInsertServlet extends HttpServlet {
 		LeaseService lService = new LeaseService();
 		
 		
-		int leaseNo = Integer.parseInt( request.getParameter("leaseNo"));
 		int bookNo = lService.selectBookNoByName(request.getParameter("bookName"));
 		String userId = request.getParameter("userId");
-		Library library = new Library(leaseNo, bookNo, userId);
+		Library library = new Library(bookNo, userId);
 		
 		int result = lService.insertLease(library);
 		if( result > 0) {

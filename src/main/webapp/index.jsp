@@ -10,7 +10,10 @@
 	</head>
 	<body>
 		<div id="container">
-			<jsp:include page="/WEB-INF/views/include/header.jsp"/>		
+			<jsp:include page="/WEB-INF/views/include/header.jsp"/>
+			<main>
+				<img alt="도서관 이미지" src="./resources/img/main.jpg">
+			</main>	
 		</div>
 	</body>
 </html>

@@ -19,6 +19,12 @@ public class Library {
 		this.bookNo = bookNo;
 		this.userId = userId;
 	}
+	
+	public Library(int bookNo, String userId) {
+		super();
+		this.bookNo = bookNo;
+		this.userId = userId;
+	}
 
 	public int getLeaseNo() {
 		return leaseNo;

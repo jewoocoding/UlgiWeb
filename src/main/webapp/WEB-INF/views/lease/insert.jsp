@@ -18,10 +18,6 @@
 			<form action="/lease/insert" method="post">
 				<table class="detail">
 					<tr>
-						<td class="tbTitle">대여번호</td>
-						<td class="tbContent"><input type="text" name="leaseNo"></td>
-					</tr>
-					<tr>
 						<td class="tbTitle">책이름</td>
 						<td class="tbContent">
 							<select name="bookName">

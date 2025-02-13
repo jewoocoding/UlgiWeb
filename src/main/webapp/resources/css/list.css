@@ -1,8 +1,15 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
 #main{
 	padding: 50px;
 	background-color: #fffbfb;
+	font-family: 'CookieRun-Regular';
 }
 
 .content {
@@ -33,6 +40,8 @@
 	height: 35px;
 	width: 60px;
 	border: none;
+	transition-duration: 1.0s;
+	font-family: 'CookieRun-Regular';
 }
 
 .insert button:hover {
@@ -55,6 +64,7 @@
 	height: 35px;
 	border-radius: 5px;
 	border:1px solid #8089dd;
+	font-family: 'CookieRun-Regular';
 }
 
 .input input {
@@ -64,6 +74,7 @@
 	border-radius: 5px;
 	border:1px solid #8089dd;
 	outline: none;
+	font-family: 'CookieRun-Regular';
 }
 
 .searchbtn button {
@@ -73,6 +84,8 @@
 	border-radius: 5px;
 	color: #fff;
 	background-color: #8089dd;
+	transition-duration: 1.0s;
+	font-family: 'CookieRun-Regular';
 }
 
 .searchbtn button:hover {
@@ -120,10 +133,19 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	line-height: 32px;
 }
 
 .pagination a {
 	font-size: 20px;
 	text-decoration: none;
 	color: #2d336a;
+	text-align: center;
+	width: 30px;
+	border-radius: 7px;
+	transition-duration: 1.0s;
+}
+
+.pagination a:hover {
+	background-color: #8089dd;
 }
